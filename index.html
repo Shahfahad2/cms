@@ -114,7 +114,6 @@
             opacity: 0.9;
         }
 
-        /* Question Styles */
         .question-card {
             background: var(--white);
             border-radius: var(--radius);
@@ -269,7 +268,6 @@
             transform: none;
         }
 
-        /* Nav Dots */
         .q-nav-container {
             background: white;
             padding: 15px;
@@ -277,7 +275,6 @@
             box-shadow: var(--shadow);
             margin-top: 20px;
             overflow-x: auto;
-            min-height: 70px; /* Ensure visibility */
         }
 
         .q-nav-scroll {
@@ -323,7 +320,6 @@
             border-color: var(--primary);
         }
 
-        /* Modal */
         .result-modal {
             display: none;
             position: fixed;
@@ -448,10 +444,7 @@
         </div>
 
         <div id="quiz-area">
-            <div style="text-align: center; padding: 20px; color: #666;">
-                <i class="fas fa-spinner fa-spin"></i> Loading Exam...
             </div>
-        </div>
 
         <div class="q-nav-container">
             <div class="q-nav-scroll" id="q-nav">
@@ -474,29 +467,30 @@
     </div>
 
     <script>
+        // Updated Questions for "Build and Manage Websites with CMS (AI)"
         const questions = [
-            { id: 1, text: "Which theme is the first to fully adopt the block-based approach of the WordPress Website Editor?", options: ["Twenty Nineteen", "Twenty Twenty", "Twenty Twenty-Two", "Twenty Seventeen"], correctAnswer: 2 },
-            { id: 2, text: "Why can a highly scalable CMS such as Drupal be a less effective choice for a small business with simple content requirements?", options: ["Due to high server resource consumption", "Due to steeper learning curve for non-developers", "Due to support for fewer content types", "Due to lack of community support"], correctAnswer: 1 },
-            { id: 3, text: "Why is setting up HTTPS important for a WordPress Web server, and what tool provides a free SSL certificate for local testing?", options: ["To increase server speed; Apache", "To enable database connections; MySQL", "To ensure secure data transmission; Let's Encrypt", "To improve SEO rankings; Google Search Console"], correctAnswer: 2 },
-            { id: 4, text: "Which of the following steps is required to install a custom theme via WordPress Admin?", options: ["Extract files to wp-content/themes", "Use WordPress Customizer > Header", "Navigate to Appearance → Themes and upload .zip", "Configure footer widgets"], correctAnswer: 2 },
-            { id: 5, text: "Which of the following roles allows the user to manage and publish posts, including those of other users?", options: ["Administrator", "Editor", "Author", "Contributor"], correctAnswer: 1 },
-            { id: 6, text: "Which of the following command is used to install Apache as a service after downloading it on Windows?", options: ["httpd.exe -k install", "apache.exe -start", "install.exe apache-service", "service start apache"], correctAnswer: 0 },
-            { id: 7, text: "What is the primary role of themes in a WordPress Website?", options: ["To provide plugins", "To enhance SEO", "To control design and layout", "To handle user authentication"], correctAnswer: 2 },
-            { id: 8, text: "Which element is NOT part of the aesthetic design of a WordPress theme?", options: ["Color scheme", "Typography", "Widgets", "Graphics"], correctAnswer: 2 },
-            { id: 9, text: "What does the Twenty Twenty-One theme emphasize?", options: ["Complex designs", "Minimalist design", "E-commerce functionality", "Advanced coding skills"], correctAnswer: 1 },
-            { id: 10, text: "Which of the following features does the Twenty Twenty-Two theme support?", options: ["Full Site Editing (FSE)", "JavaScript animations", "PHP coding", "RSS feeds"], correctAnswer: 0 },
-            { id: 11, text: "What type of themes does the WordPress Theme Repository primarily offer?", options: ["Premium themes", "Free themes", "Custom themes", "Paid themes"], correctAnswer: 1 },
-            { id: 12, text: "Which type of plugin is used to improve a WordPress Website's search engine rankings?", options: ["E-commerce Plugins", "Security Plugins", "SEO Plugins", "Backup and Restoration Plugins"], correctAnswer: 2 },
-            { id: 13, text: "Why would a business with complex content requirements prefer Drupal over the more popular WordPress?", options: ["Drupal has fewer security updates", "Drupal offers simpler customization", "Drupal provides better scalability and content structuring", "Drupal is easier to use for beginners"], correctAnswer: 2 },
-            { id: 14, text: "In a CMS, which user role typically has the highest level of access and control over the system?", options: ["Editor", "Admin", "Subscriber", "Contributor"], correctAnswer: 1 },
-            { id: 15, text: "In phpMyAdmin, which of the following collations is recommended when creating a new WordPress database?", options: ["utf8_unicode_ci", "utf8_general_ci", "latin1_swedish_ci", "utf8mb4_unicode_ci"], correctAnswer: 3 },
-            { id: 16, text: "What feature of CMS platforms helps improve search engine visibility?", options: ["Content Tags", "Search Engine Optimization (SEO) Tools", "Version Control", "User Roles"], correctAnswer: 1 },
-            { id: 17, text: "Which of the following services are required to be started in the XAMPP Control Panel to begin working with WordPress?", options: ["Apache and PHP", "Apache and MySQL", "MySQL and FileZilla", "PHP and Perl"], correctAnswer: 1 },
-            { id: 18, text: "Which of the following MySQL versions is suggested for WordPress installation?", options: ["MySQL 5.7", "MySQL 8.0", "MySQL 8.3", "MySQL 8.4.x"], correctAnswer: 1 },
-            { id: 19, text: "Which of the following PHP configuration settings is crucial for determining the maximum size of files that can be uploaded via WordPress?", options: ["memory_limit", "upload_max_filesize", "max_execution_time", "post_max_size"], correctAnswer: 1 },
-            { id: 20, text: "When implementing a CMS, which scenario could lead to security vulnerabilities despite regular software updates?", options: ["Using default admin credentials without change", "Implementing advanced content taxonomies", "Using a custom theme developed by the CMS community", "Relying on WYSIWYG editors"], correctAnswer: 0 },
-            { id: 21, text: "What type of editor is commonly used in CMS platforms to simplify content creation?", options: ["Code Editor", "Text Editor", "What You See Is What You Get (WYSIWYG) Editor", "Markdown Editor"], correctAnswer: 2 },
-            { id: 22, text: "Which CMS platform is known for its high security and extensive configuration options?", options: ["WordPress", "Joomla", "Drupal", "Wix"], correctAnswer: 2 }
+            { id: 1, text: "Which theme is the first to fully adopt the block-based approach of the WordPress Website Editor?", options: ["Twenty Nineteen", "Twenty Twenty", "Twenty Twenty-Two", "Twenty Seventeen"], correctAnswer: 2 }, //
+            { id: 2, text: "Why can a highly scalable CMS such as Drupal be a less effective choice for a small business with simple content requirements?", options: ["Due to high server resource consumption", "Due to steeper learning curve for non-developers", "Due to support for fewer content types", "Due to lack of community support"], correctAnswer: 1 }, //
+            { id: 3, text: "Why is setting up HTTPS important for a WordPress Web server, and what tool provides a free SSL certificate for local testing?", options: ["To increase server speed; Apache", "To enable database connections; MySQL", "To ensure secure data transmission; Let's Encrypt", "To improve SEO rankings; Google Search Console"], correctAnswer: 2 }, //
+            { id: 4, text: "Which of the following steps is required to install a custom theme via WordPress Admin?", options: ["Extract files to wp-content/themes", "Use WordPress Customizer > Header", "Navigate to Appearance → Themes and upload .zip", "Configure footer widgets"], correctAnswer: 2 }, //
+            { id: 5, text: "Which of the following roles allows the user to manage and publish posts, including those of other users?", options: ["Administrator", "Editor", "Author", "Contributor"], correctAnswer: 1 }, //
+            { id: 6, text: "Which of the following command is used to install Apache as a service after downloading it on Windows?", options: ["httpd.exe -k install", "apache.exe -start", "install.exe apache-service", "service start apache"], correctAnswer: 0 }, //
+            { id: 7, text: "What is the primary role of themes in a WordPress Website?", options: ["To provide plugins", "To enhance SEO", "To control design and layout", "To handle user authentication"], correctAnswer: 2 }, //
+            { id: 8, text: "Which element is NOT part of the aesthetic design of a WordPress theme?", options: ["Color scheme", "Typography", "Widgets", "Graphics"], correctAnswer: 2 }, //
+            { id: 9, text: "What does the Twenty Twenty-One theme emphasize?", options: ["Complex designs", "Minimalist design", "E-commerce functionality", "Advanced coding skills"], correctAnswer: 1 }, //
+            { id: 10, text: "Which of the following features does the Twenty Twenty-Two theme support?", options: ["Full Site Editing (FSE)", "JavaScript animations", "PHP coding", "RSS feeds"], correctAnswer: 0 }, //
+            { id: 11, text: "What type of themes does the WordPress Theme Repository primarily offer?", options: ["Premium themes", "Free themes", "Custom themes", "Paid themes"], correctAnswer: 1 }, //
+            { id: 12, text: "Which type of plugin is used to improve a WordPress Website's search engine rankings?", options: ["E-commerce Plugins", "Security Plugins", "SEO Plugins", "Backup and Restoration Plugins"], correctAnswer: 2 }, //
+            { id: 13, text: "Why would a business with complex content requirements prefer Drupal over the more popular WordPress?", options: ["Drupal has fewer security updates", "Drupal offers simpler customization", "Drupal provides better scalability and content structuring", "Drupal is easier to use for beginners"], correctAnswer: 2 }, //
+            { id: 14, text: "In a CMS, which user role typically has the highest level of access and control over the system?", options: ["Editor", "Admin", "Subscriber", "Contributor"], correctAnswer: 1 }, //
+            { id: 15, text: "In phpMyAdmin, which of the following collations is recommended when creating a new WordPress database?", options: ["utf8_unicode_ci", "utf8_general_ci", "latin1_swedish_ci", "utf8mb4_unicode_ci"], correctAnswer: 3 }, //
+            { id: 16, text: "What feature of CMS platforms helps improve search engine visibility?", options: ["Content Tags", "Search Engine Optimization (SEO) Tools", "Version Control", "User Roles"], correctAnswer: 1 }, //
+            { id: 17, text: "Which of the following services are required to be started in the XAMPP Control Panel to begin working with WordPress?", options: ["Apache and PHP", "Apache and MySQL", "MySQL and FileZilla", "PHP and Perl"], correctAnswer: 1 }, //
+            { id: 18, text: "Which of the following MySQL versions is suggested for WordPress installation?", options: ["MySQL 5.7", "MySQL 8.0", "MySQL 8.3", "MySQL 8.4.x"], correctAnswer: 1 }, //
+            { id: 19, text: "Which of the following PHP configuration settings is crucial for determining the maximum size of files that can be uploaded via WordPress?", options: ["memory_limit", "upload_max_filesize", "max_execution_time", "post_max_size"], correctAnswer: 1 }, //
+            { id: 20, text: "When implementing a CMS, which scenario could lead to security vulnerabilities despite regular software updates?", options: ["Using default admin credentials without change", "Implementing advanced content taxonomies", "Using a custom theme developed by the CMS community", "Relying on WYSIWYG editors"], correctAnswer: 0 }, //
+            { id: 21, text: "What type of editor is commonly used in CMS platforms to simplify content creation?", options: ["Code Editor", "Text Editor", "What You See Is What You Get (WYSIWYG) Editor", "Markdown Editor"], correctAnswer: 2 }, //
+            { id: 22, text: "Which CMS platform is known for its high security and extensive configuration options?", options: ["WordPress", "Joomla", "Drupal", "Wix"], correctAnswer: 2 } //
         ];
 
         let currentQuestion = 0;
@@ -504,21 +498,13 @@
         let timeLeft = 30 * 60; 
         let timerInterval;
 
-        window.onload = function() {
-            try {
-                initExam();
-            } catch (e) {
-                console.error("Exam load error:", e);
-                document.getElementById('quiz-area').innerHTML = '<div style="color:red; text-align:center; padding:20px;">Error loading exam. Please refresh.</div>';
-            }
-        };
-
-        function initExam() {
+        document.addEventListener('DOMContentLoaded', () => {
             renderQuestion(currentQuestion);
             renderNav();
             startTimer();
+            document.getElementById('current-q-num').innerText = 1;
             document.getElementById('total-q-num').innerText = questions.length;
-        }
+        });
 
         function renderQuestion(index) {
             const q = questions[index];
